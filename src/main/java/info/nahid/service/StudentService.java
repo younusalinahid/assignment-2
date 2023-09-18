@@ -31,4 +31,8 @@ public class StudentService {
         studentRepository.save(student);
     }
 
+    public void deleteStudent(String id) {
+        studentRepository.deleteById(id);
+    }
+
 }

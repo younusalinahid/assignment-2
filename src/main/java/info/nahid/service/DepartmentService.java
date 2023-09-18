@@ -31,4 +31,8 @@ public class DepartmentService {
         departmentRepository.save(department);
     }
 
+    public void deleteDepartment(String id) {
+        departmentRepository.deleteById(id);
+    }
+
 }
