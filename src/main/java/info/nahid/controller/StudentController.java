@@ -3,6 +3,7 @@ package info.nahid.controller;
 import info.nahid.entity.Student;
 import info.nahid.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class StudentController {
         return studentService.getAllStudent();
     }
 
-    @PostMapping("/students")
+    @PostMapping(value = "/students")
     public void addStudent(@RequestBody Student student) {
         studentService.addStudent(student);
     }
@@ -26,5 +27,11 @@ public class StudentController {
     @GetMapping("/students/{id}")
     public Student getStudent(@PathVariable String id) {
         return studentService.getStudent(id);
+    }
+
+    @PutMapping(value = "students/{id}")
+    public String updateStudent(@RequestBody Student student, @PathVariable String id) {
+        studentService.updateStudent(id,student);
+        return "Successfully Update";
     }
 }

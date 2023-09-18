@@ -27,4 +27,8 @@ public class DepartmentService {
         return department.orElse(null);
     }
 
+    public void updateDepartment(String id,Department department) {
+        departmentRepository.save(department);
+    }
+
 }

@@ -27,4 +27,8 @@ public class StudentService {
             return student.orElse(null);
     }
 
+    public void updateStudent(String id, Student student) {
+        studentRepository.save(student);
+    }
+
 }

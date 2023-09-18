@@ -17,7 +17,7 @@ public class DepartmentController {
         return departmentService.getAllDepartment();
     }
 
-    @PostMapping("/departments")
+    @PostMapping(value = "/departments")
     public String addDepartment(@RequestBody Department department) {
         departmentService.addDepartment(department);
         return "Successfully Save";
@@ -26,6 +26,12 @@ public class DepartmentController {
     @GetMapping("departments/{id}")
     public Department getDepartment(@PathVariable String id) {
         return departmentService.getDepartment(id);
+    }
+
+    @PutMapping(value = "departments/{id}")
+    public String updateDepartment(@RequestBody Department department, @PathVariable String id) {
+        departmentService.updateDepartment(id, department);
+        return "Successfully Update";
     }
 
 }
