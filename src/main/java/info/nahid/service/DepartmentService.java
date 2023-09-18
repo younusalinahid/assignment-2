@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DepartmentService {
@@ -19,6 +20,11 @@ public class DepartmentService {
 
     public void addDepartment(Department department) {
         departmentRepository.save(department);
+    }
+
+    public Department getDepartment(String id) {
+        Optional<Department> department = departmentRepository.findById(id);
+        return department.orElse(null);
     }
 
 }

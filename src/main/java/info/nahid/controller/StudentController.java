@@ -3,10 +3,7 @@ package info.nahid.controller;
 import info.nahid.entity.Student;
 import info.nahid.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +21,10 @@ public class StudentController {
     @PostMapping("/students")
     public void addStudent(@RequestBody Student student) {
         studentService.addStudent(student);
+    }
+
+    @GetMapping("/students/{id}")
+    public Student getStudent(@PathVariable String id) {
+        return studentService.getStudent(id);
     }
 }

@@ -23,4 +23,9 @@ public class DepartmentController {
         return "Successfully Save";
     }
 
+    @GetMapping("departments/{id}")
+    public Department getDepartment(@PathVariable String id) {
+        return departmentService.getDepartment(id);
+    }
+
 }
