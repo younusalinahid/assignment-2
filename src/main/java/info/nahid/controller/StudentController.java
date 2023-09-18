@@ -4,6 +4,8 @@ import info.nahid.entity.Student;
 import info.nahid.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,5 +19,10 @@ public class StudentController {
     @GetMapping("/students")
     public List<Student> getAllStudent() {
         return studentService.getAllStudent();
+    }
+
+    @PostMapping("/students")
+    public void addStudent(@RequestBody Student student) {
+        studentService.addStudent(student);
     }
 }
